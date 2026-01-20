@@ -1,0 +1,35 @@
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "GetMoreClients | AI-Powered Digital Marketing Agency",
+  description: "Grow your business with smart digital marketing. AI-powered strategies for SEO, social media, and content marketing that deliver measurable results.",
+  keywords: ["digital marketing", "SEO", "social media marketing", "AI marketing", "content marketing", "lead generation"],
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        {children}
+      </body>
+    </html>
+  );
+}
