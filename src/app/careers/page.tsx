@@ -19,7 +19,8 @@ import {
     HelpCircle,
     Phone,
     X,
-    Check
+    Check,
+    Calendar
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
@@ -173,6 +174,16 @@ export default function CareersPage() {
                     { name: "Why Us", url: "/#why-us", icon: CheckCircle },
                     { name: "FAQ", url: "/#faq", icon: HelpCircle },
                     { name: "Contact", url: "/contact", icon: Phone },
+                    {
+                        name: "Book a session",
+                        url: "#",
+                        icon: Calendar,
+                        dataAttributes: {
+                            "data-cal-namespace": "",
+                            "data-cal-link": "getmoreclients-agency/free-strategy-consultation",
+                            "data-cal-config": '{"layout":"month_view"}'
+                        }
+                    },
                 ]}
             />
 

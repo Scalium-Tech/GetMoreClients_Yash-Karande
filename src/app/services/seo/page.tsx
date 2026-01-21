@@ -6,7 +6,7 @@ import {
     Search, HomeIcon, Sparkles, Settings, CheckCircle, HelpCircle, Phone,
     ArrowLeft, ArrowRight, Target, BarChart3, Zap, TrendingUp, Globe,
     FileSearch, Code, Layers, MapPin, Link2, Brain, LineChart, DollarSign,
-    Eye, Users, Cpu
+    Eye, Users, Cpu, Calendar
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -23,6 +23,16 @@ export default function SEOPage() {
         { name: "Why Us", url: "/#why-us", icon: CheckCircle },
         { name: "FAQ", url: "/#faq", icon: HelpCircle },
         { name: "Contact", url: "/contact", icon: Phone },
+        {
+            name: "Book a session",
+            url: "#",
+            icon: Calendar,
+            dataAttributes: {
+                "data-cal-namespace": "",
+                "data-cal-link": "getmoreclients-agency/free-strategy-consultation",
+                "data-cal-config": '{"layout":"month_view"}'
+            }
+        },
     ]
 
     const searchChannels = [

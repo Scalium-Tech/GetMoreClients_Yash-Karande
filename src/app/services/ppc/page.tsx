@@ -6,7 +6,7 @@ import {
     MousePointerClick, HomeIcon, Sparkles, Settings, CheckCircle, HelpCircle, Phone,
     ArrowLeft, ArrowRight, Target, BarChart3, Zap, TrendingUp, DollarSign, Users,
     Search, Globe, MonitorPlay, Layout, LineChart, PieChart, Brain, Layers,
-    MessageSquare, Eye, Sparkle
+    MessageSquare, Eye, Sparkle, Calendar
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -23,6 +23,16 @@ export default function PPCPage() {
         { name: "Why Us", url: "/#why-us", icon: CheckCircle },
         { name: "FAQ", url: "/#faq", icon: HelpCircle },
         { name: "Contact", url: "/contact", icon: Phone },
+        {
+            name: "Book a session",
+            url: "#",
+            icon: Calendar,
+            dataAttributes: {
+                "data-cal-namespace": "",
+                "data-cal-link": "getmoreclients-agency/free-strategy-consultation",
+                "data-cal-config": '{"layout":"month_view"}'
+            }
+        },
     ]
 
     const platformCards = [

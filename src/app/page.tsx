@@ -41,7 +41,8 @@ import {
   Settings,
   TrendingUp,
   Home as HomeIcon,
-  HelpCircle
+  HelpCircle,
+  Calendar
 } from "lucide-react"
 import Link from "next/link"
 
@@ -356,6 +357,16 @@ export default function Home() {
           { name: "Why Us", url: "#why-us", icon: CheckCircle },
           { name: "FAQ", url: "#faq", icon: HelpCircle },
           { name: "Contact", url: "/contact", icon: Phone },
+          {
+            name: "Book a session",
+            url: "#",
+            icon: Calendar,
+            dataAttributes: {
+              "data-cal-namespace": "",
+              "data-cal-link": "getmoreclients-agency/free-strategy-consultation",
+              "data-cal-config": '{"layout":"month_view"}'
+            }
+          },
         ]}
       />
 
@@ -383,29 +394,7 @@ export default function Home() {
                 Get<span className="text-blue-400">More</span>Clients
               </Link>
 
-              {/* Spacer for desktop (NavBar is fixed at top) */}
               <div className="hidden md:block" />
-
-              <div className="hidden md:flex items-center space-x-4 pointer-events-auto">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  data-cal-namespace=""
-                  data-cal-link="getmoreclients-agency/free-strategy-consultation"
-                  data-cal-config='{"layout":"month_view"}'
-                  className="font-semibold bg-white/5 border-white/10 hover:bg-white/10 text-white"
-                >
-                  Let's Talk
-                  <MessageSquare className="ml-2 h-4 w-4" />
-                </Button>
-                <Button
-                  size="sm"
-                  href="/contact"
-                >
-                  Contact Us
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </div>
             </div>
           </div>
         </nav>
@@ -438,20 +427,12 @@ export default function Home() {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-40">
                 <Button
-                  size="lg"
-                  href="/contact"
-                  className="shadow-2xl shadow-blue-500/25 font-semibold"
-                >
-                  Contact Us
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button
                   variant="outline"
                   size="lg"
                   href="#services"
-                  className="font-semibold bg-transparent"
+                  className="font-semibold bg-white/5 border-white/10 hover:bg-white/10 text-white"
                 >
-                  Services
+                  Our Services
                 </Button>
               </div>
             </div>

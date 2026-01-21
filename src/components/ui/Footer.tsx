@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import {
     Mail,
     MapPin,
@@ -46,6 +47,12 @@ const data = {
     },
 };
 
+interface FooterLink {
+    text: string;
+    href?: string;
+    isFeedback?: boolean;
+}
+
 const socialLinks = [
     { icon: Facebook, label: "Facebook", href: data.socialLinks.facebook },
     { icon: Instagram, label: "Instagram", href: data.socialLinks.instagram },
@@ -54,7 +61,7 @@ const socialLinks = [
     { icon: Globe, label: "Website", href: data.socialLinks.website },
 ];
 
-const companyLinks = [
+const companyLinks: FooterLink[] = [
     { text: "About Us", href: "/about" },
     { text: "Blogs", href: "/blogs" },
     { text: "Careers", href: "/careers" },
@@ -178,12 +185,6 @@ export function Footer() {
                             >
                                 FAQ
                             </a>
-                            <Link
-                                href="/contact"
-                                className="text-white/80 hover:text-white transition-colors text-sm cursor-pointer"
-                            >
-                                Contact
-                            </Link>
                         </div>
                     </div>
 
@@ -195,7 +196,7 @@ export function Footer() {
                         <ul className="space-y-2">
                             {companyLinks.map((link) => (
                                 <li key={link.text}>
-                                    <Link href={link.href} className="relative z-30 text-white/80 hover:text-white transition-colors text-sm inline-block">
+                                    <Link href={link.href!} className="relative z-30 text-white/80 hover:text-white transition-colors text-sm inline-block">
                                         {link.text}
                                     </Link>
                                 </li>
@@ -225,8 +226,13 @@ export function Footer() {
                             Contact Us
                         </div>
                         <ul className="space-y-2">
+                            <li>
+                                <Link href="/contact" className="text-white/80 hover:text-white transition-colors text-sm inline-block mb-1">
+                                    Contact
+                                </Link>
+                            </li>
                             {contactInfo.map((item) => (
-                                <li key={item.text}>
+                                <li key={item.text} className="opacity-80">
                                     {item.isAddress ? (
                                         <div className="flex items-center justify-center md:justify-start gap-2 text-sm text-white/80">
                                             <item.icon className="h-4 w-4 text-blue-400" />

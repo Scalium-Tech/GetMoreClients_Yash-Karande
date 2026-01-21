@@ -3,9 +3,9 @@
 import React from "react"
 import { motion } from "framer-motion"
 import {
-    Share2, HomeIcon, Sparkles, Settings, CheckCircle, HelpCircle, Phone,
+    Share2, Home as HomeIcon, Sparkles, Settings, CheckCircle, HelpCircle, Phone,
     ArrowLeft, ArrowRight, Target, BarChart3, Zap, TrendingUp, Users,
-    MessageSquare, Brain, Eye, Linkedin, Instagram, Youtube, Twitter
+    MessageSquare, Brain, Eye, Linkedin, Instagram, Youtube, Twitter, Calendar
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -22,6 +22,16 @@ export default function SocialMediaPage() {
         { name: "Why Us", url: "/#why-us", icon: CheckCircle },
         { name: "FAQ", url: "/#faq", icon: HelpCircle },
         { name: "Contact", url: "/contact", icon: Phone },
+        {
+            name: "Book a session",
+            url: "#",
+            icon: Calendar,
+            dataAttributes: {
+                "data-cal-namespace": "",
+                "data-cal-link": "getmoreclients-agency/free-strategy-consultation",
+                "data-cal-config": '{"layout":"month_view"}'
+            }
+        },
     ]
 
     const platformCards = [

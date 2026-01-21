@@ -10,6 +10,7 @@ interface NavItem {
     name: string
     url: string
     icon: LucideIcon
+    dataAttributes?: Record<string, string>
 }
 
 interface NavBarProps {
@@ -42,6 +43,25 @@ export function NavBar({ items, className }: NavBarProps) {
                 {items.map((item) => {
                     const Icon = item.icon
                     const isActive = activeTab === item.name
+                    const isButton = !!item.dataAttributes
+
+                    if (isButton) {
+                        return (
+                            <button
+                                key={item.name}
+                                {...(item.dataAttributes || {})}
+                                className={cn(
+                                    "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors",
+                                    "bg-blue-500/10 hover:bg-blue-500/20 text-blue-400"
+                                )}
+                            >
+                                <span className="hidden md:inline">{item.name}</span>
+                                <span className="md:hidden">
+                                    <Icon size={18} strokeWidth={2.5} />
+                                </span>
+                            </button>
+                        )
+                    }
 
                     return (
                         <Link

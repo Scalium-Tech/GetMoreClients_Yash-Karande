@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import {
     ShoppingBag, HomeIcon, Sparkles, Settings, CheckCircle, HelpCircle, Phone,
     ArrowLeft, ArrowRight, Target, BarChart3, Zap, TrendingUp,
-    Eye, Store, Camera, FileText, ShoppingCart, Palette, Brain, Package
+    Eye, Store, Camera, FileText, ShoppingCart, Palette, Brain, Package, Calendar
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -22,6 +22,16 @@ export default function EcommercePage() {
         { name: "Why Us", url: "/#why-us", icon: CheckCircle },
         { name: "FAQ", url: "/#faq", icon: HelpCircle },
         { name: "Contact", url: "/contact", icon: Phone },
+        {
+            name: "Book a session",
+            url: "#",
+            icon: Calendar,
+            dataAttributes: {
+                "data-cal-namespace": "",
+                "data-cal-link": "getmoreclients-agency/free-strategy-consultation",
+                "data-cal-config": '{"layout":"month_view"}'
+            }
+        },
     ]
 
     const platforms = [

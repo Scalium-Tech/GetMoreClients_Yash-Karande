@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import {
     Palette, HomeIcon, Sparkles, Settings, CheckCircle, HelpCircle, Phone,
     ArrowLeft, ArrowRight, Layers, Eye, PenTool, Wand2, Image as ImageIcon,
-    Target, Zap, Users, BookOpen
+    Target, Zap, Users, BookOpen, Calendar
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -22,6 +22,16 @@ export default function BrandAssetsPage() {
         { name: "Why Us", url: "/#why-us", icon: CheckCircle },
         { name: "FAQ", url: "/#faq", icon: HelpCircle },
         { name: "Contact", url: "/contact", icon: Phone },
+        {
+            name: "Book a session",
+            url: "#",
+            icon: Calendar,
+            dataAttributes: {
+                "data-cal-namespace": "",
+                "data-cal-link": "getmoreclients-agency/free-strategy-consultation",
+                "data-cal-config": '{"layout":"month_view"}'
+            }
+        },
     ]
 
     const assetTypes = [

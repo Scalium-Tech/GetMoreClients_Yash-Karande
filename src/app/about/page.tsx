@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, Sparkles, Target, Users, Zap, Award, Heart, Globe, CheckCircle, TrendingUp, MessageSquare, Shield, Linkedin, Twitter, Home as HomeIcon, Settings, HelpCircle, Phone } from "lucide-react";
+import { ArrowLeft, Sparkles, Target, Users, Zap, Award, Heart, Globe, CheckCircle, TrendingUp, MessageSquare, Shield, Linkedin, Twitter, Home as HomeIcon, Settings, HelpCircle, Phone, Calendar } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/GlowingEffect";
 import { NavBar } from "@/components/ui/NavBar";
 import { StarsBackground } from "@/components/ui/StarsBackground";
@@ -128,6 +128,16 @@ export default function AboutPage() {
                     { name: "Why Us", url: "/#why-us", icon: CheckCircle },
                     { name: "FAQ", url: "/#faq", icon: HelpCircle },
                     { name: "Contact", url: "/contact", icon: Phone },
+                    {
+                        name: "Book a session",
+                        url: "#",
+                        icon: Calendar,
+                        dataAttributes: {
+                            "data-cal-namespace": "",
+                            "data-cal-link": "getmoreclients-agency/free-strategy-consultation",
+                            "data-cal-config": '{"layout":"month_view"}'
+                        }
+                    },
                 ]}
             />
 

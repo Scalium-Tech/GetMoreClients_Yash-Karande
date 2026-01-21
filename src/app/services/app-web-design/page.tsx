@@ -6,7 +6,7 @@ import {
     Palette, HomeIcon, Sparkles, Settings, CheckCircle, HelpCircle, Phone,
     ArrowLeft, ArrowRight, Target, Zap, TrendingUp, Layout,
     Eye, Users, Smartphone, Monitor, Layers, Globe, PenTool, Compass,
-    MousePointer, Code, Figma
+    MousePointer, Code, Figma, Calendar
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -23,6 +23,16 @@ export default function AppWebDesignPage() {
         { name: "Why Us", url: "/#why-us", icon: CheckCircle },
         { name: "FAQ", url: "/#faq", icon: HelpCircle },
         { name: "Contact", url: "/contact", icon: Phone },
+        {
+            name: "Book a session",
+            url: "#",
+            icon: Calendar,
+            dataAttributes: {
+                "data-cal-namespace": "",
+                "data-cal-link": "getmoreclients-agency/free-strategy-consultation",
+                "data-cal-config": '{"layout":"month_view"}'
+            }
+        },
     ]
 
     const platforms = [
