@@ -117,7 +117,7 @@ export function StarsBackground({
         >
             <motion.div
                 style={{ x: springX, y: springY }}
-                className="pointer-events-none fixed inset-0 z-0"
+                className="pointer-events-none absolute inset-0 z-0"
             >
                 <StarLayer
                     count={1000}

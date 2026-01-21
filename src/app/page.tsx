@@ -13,6 +13,7 @@ import { Footer } from "@/components/ui/Footer"
 import { GlowingEffect } from "@/components/ui/GlowingEffect"
 import { PixelCanvas } from "@/components/ui/PixelCanvas"
 import { NavBar } from "@/components/ui/NavBar"
+import { motion } from "framer-motion"
 import { useEffect } from "react"
 import { getCalApi } from "@calcom/embed-react"
 import { supabase } from "@/lib/supabase"
@@ -607,28 +608,39 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {whoWeHelpDetailed.map((item) => (
-                <div
+              {whoWeHelpDetailed.map((item, index) => (
+                <motion.div
                   key={item.label}
-                  className="group relative bg-black/50 border border-white/10 rounded-3xl p-8 hover:bg-black/40 transition-all duration-300 hover:-translate-y-1"
+                  initial={{ y: 20, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="group relative rounded-3xl p-[2px] transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+                  style={{
+                    background: 'linear-gradient(135deg, #22d3ee, #a78bfa, #ec4899, #f97316, #22d3ee)',
+                    backgroundSize: '300% 300%',
+                    animation: 'borderGradientShift 6s ease-in-out infinite',
+                  }}
                 >
-                  {/* Glowing Effect */}
-                  <GlowingEffect
-                    spread={40}
-                    glow={true}
-                    disabled={false}
-                    proximity={64}
-                    inactiveZone={0.01}
-                  />
+                  <div className="relative z-10 h-full bg-[#020617] rounded-[22px] p-8 transition-all duration-300">
+                    {/* Glowing Effect */}
+                    <GlowingEffect
+                      spread={40}
+                      glow={true}
+                      disabled={false}
+                      proximity={64}
+                      inactiveZone={0.01}
+                    />
 
-                  <div className="relative z-10 text-center">
-                    <div className="mb-6">
-                      <item.icon className="h-12 w-12 text-white drop-shadow-lg mx-auto" strokeWidth={1.5} />
+                    <div className="relative z-10 text-center">
+                      <div className="mb-6">
+                        <item.icon className="h-12 w-12 text-white drop-shadow-[0_0_8px_rgba(34,211,238,0.5)] mx-auto" strokeWidth={1.5} />
+                      </div>
+                      <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-cyan-300 transition-colors uppercase tracking-tight">{item.label}</h3>
+                      <p className="text-gray-100 text-base leading-relaxed font-medium opacity-80 group-hover:opacity-100 transition-opacity">{item.description}</p>
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-4">{item.label}</h3>
-                    <p className="text-gray-100 text-base leading-relaxed font-medium">{item.description}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -661,45 +673,56 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {whyChooseUs.map((item) => (
-                <div
+              {whyChooseUs.map((item, index) => (
+                <motion.div
                   key={item.title}
-                  className="group relative flex gap-6 p-8 bg-black/50 border border-white/10 rounded-3xl transition-all duration-300 hover:bg-black/40"
+                  initial={{ y: 20, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="group relative rounded-3xl p-[2px] transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+                  style={{
+                    background: 'linear-gradient(135deg, #22d3ee, #a78bfa, #ec4899, #f97316, #22d3ee)',
+                    backgroundSize: '300% 300%',
+                    animation: 'borderGradientShift 6s ease-in-out infinite',
+                  }}
                 >
-                  {/* Glowing Effect */}
-                  <GlowingEffect
-                    spread={40}
-                    glow={true}
-                    disabled={false}
-                    proximity={64}
-                    inactiveZone={0.01}
-                  />
+                  <div className="relative z-10 h-full bg-[#020617] rounded-[22px] p-8 flex gap-6 transition-all duration-300">
+                    {/* Glowing Effect */}
+                    <GlowingEffect
+                      spread={40}
+                      glow={true}
+                      disabled={false}
+                      proximity={64}
+                      inactiveZone={0.01}
+                    />
 
-                  <div className="relative z-10 flex gap-6">
-                    <div className="flex-shrink-0">
-                      <item.icon className="h-12 w-12 text-white drop-shadow-lg" strokeWidth={1.5} />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-white mb-3">{item.title}</h3>
-                      <p className="text-gray-100 text-base leading-relaxed mb-4 font-medium">{item.description}</p>
+                    <div className="relative z-10 flex gap-6">
+                      <div className="flex-shrink-0">
+                        <item.icon className="h-12 w-12 text-white drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]" strokeWidth={1.5} />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors uppercase tracking-tight">{item.title}</h3>
+                        <p className="text-gray-100 text-base leading-relaxed mb-4 font-medium opacity-80 group-hover:opacity-100 transition-opacity">{item.description}</p>
 
-                      {/* Bullet Points */}
-                      <div className="flex flex-wrap gap-2">
-                        {item.points.map((point, idx) => (
-                          <span
-                            key={idx}
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/10 border border-white/20 rounded-full text-sm text-white font-medium"
-                          >
-                            <svg className="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                            </svg>
-                            {point}
-                          </span>
-                        ))}
+                        {/* Bullet Points */}
+                        <div className="flex flex-wrap gap-2">
+                          {item.points.map((point, idx) => (
+                            <span
+                              key={idx}
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/10 border border-white/20 rounded-full text-sm text-white font-medium"
+                            >
+                              <svg className="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                              </svg>
+                              {point}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 
@@ -818,6 +841,20 @@ export default function Home() {
 
       {/* ========== FOOTER ========== */}
       <Footer />
+
+      <style jsx global>{`
+        @keyframes borderGradientShift {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+      `}</style>
     </div>
   )
 }
