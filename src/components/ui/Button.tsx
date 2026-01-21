@@ -29,7 +29,7 @@ export const Button = ({ variant = "default", size = "sm", className = "", child
     const content = (
         <>
             <span className="relative z-10 flex items-center">{children}</span>
-            <div className="absolute inset-0 -top-2 -bottom-2 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+            <div className="absolute inset-0 -top-2 -bottom-2 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
         </>
     )
 

@@ -525,6 +525,59 @@ export default function BrandAssetsPage() {
                                 shaderIndex={7}
                             />
                         </div>
+
+                        {/* More Services Button */}
+                        <div className="text-center mt-10 relative z-[150]">
+                            <Link
+                                href="/#services"
+                                className="relative z-[200] inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 hover:border-white/20 transition-all group cursor-pointer"
+                            >
+                                View All Services
+                                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                        </div>
+                    </section>
+
+                    {/* ===== STRONG CONVERSION CTA ===== */}
+                    <section className="mb-16">
+                        <motion.div
+                            initial={{ y: 30, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            viewport={{ once: true }}
+                            className="relative rounded-[20px] overflow-hidden"
+                        >
+                            {/* Background Image */}
+                            <div className="absolute inset-0">
+                                <Image
+                                    src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200&q=80"
+                                    alt="Brand Design"
+                                    fill
+                                    className="object-cover"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-r from-violet-600/90 to-purple-700/90" />
+                            </div>
+
+                            <div className="relative z-10 p-12 md:p-16 text-center">
+                                {/* Background glow */}
+                                <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+
+                                <div className="relative">
+                                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                                        Ready to build an Iconic Brand?
+                                    </h2>
+                                    <p className="text-white/80 text-lg mb-10 max-w-2xl mx-auto">
+                                        Let's create distinctive, AI-powered brand assets that make you instantly recognizable and build lasting trust.
+                                    </p>
+                                    <Link
+                                        href="/contact"
+                                        className="isolate relative z-[100] pointer-events-auto inline-flex items-center px-10 py-5 bg-white text-violet-600 font-bold text-lg rounded-full hover:bg-white/90 transition-all hover:scale-105 active:scale-95 shadow-xl"
+                                    >
+                                        Get Started Now
+                                        <ArrowRight className="ml-2 h-5 w-5" />
+                                    </Link>
+                                </div>
+                            </div>
+                        </motion.div>
                     </section>
 
                 </div>

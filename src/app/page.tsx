@@ -359,7 +359,7 @@ export default function Home() {
       />
 
       {/* ========== HERO SECTION WITH BEAMS ========== */}
-      <div id="home" className="relative min-h-screen isolate">
+      <div id="home" className="relative min-h-screen">
         {/* Beams Background */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Beams
@@ -374,20 +374,18 @@ export default function Home() {
           />
         </div>
 
-        {/* Navbar */}
-        <nav className="relative z-20 w-full">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <nav className="relative z-20 w-full pointer-events-none">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 pointer-events-none">
             <div className="flex h-20 items-center justify-between">
               {/* Brand */}
-              <Link href="/" className="text-2xl font-bold text-white tracking-tight">
+              <Link href="/" className="text-2xl font-bold text-white tracking-tight pointer-events-auto">
                 Get<span className="text-blue-400">More</span>Clients
               </Link>
 
               {/* Spacer for desktop (NavBar is fixed at top) */}
               <div className="hidden md:block" />
 
-              {/* CTA */}
-              <div className="hidden md:flex items-center space-x-4">
+              <div className="hidden md:flex items-center space-x-4 pointer-events-auto">
                 <Button
                   variant="outline"
                   size="sm"
@@ -411,9 +409,8 @@ export default function Home() {
           </div>
         </nav>
 
-        {/* Hero Content */}
-        <div className="relative z-10 flex min-h-[calc(100vh-5rem)] items-center">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="relative z-30 flex min-h-[calc(100vh-5rem)] items-center pointer-events-none">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 pointer-events-auto">
             <div className="mx-auto max-w-4xl text-center">
               {/* Badge */}
               <div className="mb-8 inline-flex items-center rounded-full bg-white/5 backdrop-blur-xl border border-white/10 px-4 py-2 text-sm text-white/90">
@@ -438,7 +435,7 @@ export default function Home() {
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-40">
                 <Button
                   size="lg"
                   href="/contact"

@@ -610,6 +610,17 @@ export default function AnimationsPage() {
                                 shaderIndex={5}
                             />
                         </div>
+
+                        {/* More Services Button */}
+                        <div className="text-center mt-10 relative z-[150]">
+                            <Link
+                                href="/#services"
+                                className="relative z-[200] inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 hover:border-white/20 transition-all group cursor-pointer"
+                            >
+                                View All Services
+                                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                        </div>
                     </section>
 
                     {/* ===== CONVERSION CTA ===== */}

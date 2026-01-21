@@ -19,11 +19,11 @@ type StarLayerProps = HTMLMotionProps<"div"> & {
     starColor: string;
 };
 
-function generateStars(count: number, starColor: string) {
+function generateStars(count: number, starColor: string, range: number = 4000) {
     const shadows: string[] = [];
     for (let i = 0; i < count; i++) {
         const x = Math.floor(Math.random() * 4000) - 2000;
-        const y = Math.floor(Math.random() * 4000) - 2000;
+        const y = Math.floor(Math.random() * range) - (range / 2);
         shadows.push(`${x}px ${y}px ${starColor}`);
     }
     return shadows.join(", ");
@@ -40,15 +40,15 @@ function StarLayer({
     const [boxShadow, setBoxShadow] = React.useState<string>("");
 
     React.useEffect(() => {
-        setBoxShadow(generateStars(count, starColor));
+        setBoxShadow(generateStars(count, starColor, 10000));
     }, [count, starColor]);
 
     return (
         <motion.div
             data-slot="star-layer"
-            animate={{ y: [0, -2000] }}
+            animate={{ y: [0, -5000] }}
             transition={transition}
-            className={cn("absolute top-0 left-0 w-full h-[2000px]", className)}
+            className={cn("absolute top-0 left-0 w-full h-[5000px]", className)}
             {...props}
         >
             <div
@@ -60,7 +60,7 @@ function StarLayer({
                 }}
             />
             <div
-                className="absolute bg-transparent rounded-full top-[2000px]"
+                className="absolute bg-transparent rounded-full top-[5000px]"
                 style={{
                     width: `${size}px`,
                     height: `${size}px`,
@@ -109,13 +109,16 @@ export function StarsBackground({
         <div
             data-slot="stars-background"
             className={cn(
-                "relative size-full overflow-hidden bg-[radial-gradient(ellipse_at_bottom,_#0c1929_0%,_#020617_100%)]",
+                "relative size-full overflow-hidden bg-[radial-gradient(ellipse_at_bottom,_#0c1929_0%,_#020617_100%)] bg-fixed",
                 className,
             )}
             onMouseMove={handleMouseMove}
             {...props}
         >
-            <motion.div style={{ x: springX, y: springY }} className="pointer-events-none">
+            <motion.div
+                style={{ x: springX, y: springY }}
+                className="pointer-events-none fixed inset-0 z-0"
+            >
                 <StarLayer
                     count={1000}
                     size={1}
